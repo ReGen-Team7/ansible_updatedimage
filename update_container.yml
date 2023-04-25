@@ -1,5 +1,5 @@
 ---
-- name: Install Docker, download images, and start containers
+- name: Update containers
   hosts: localhost
   become: true
 
