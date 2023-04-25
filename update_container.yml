@@ -1,0 +1,33 @@
+---
+- name: Install Docker, download images, and start containers
+  hosts: localhost
+  become: true
+
+  tasks:
+
+  - name: Stop container
+    docker_container:
+      name: todoappwithlogin
+      state: stopped
+  - name: Stop container
+    docker_container:
+      name: todoappwithlogin
+      state: stopped
+  - name: Download Web Application image
+    docker_image:
+      name: eugenefltk/todoappwithlogin
+      pull: yes
+  - name: Start Web Application container
+    docker_container:
+      name: todoappwithlogin
+      image: eugenefltk/todoappwithlogin
+      # env:
+      #   DB_HOST: localhost
+      #   DB_PORT: 3306
+      #   DB_USER: root
+      #   DB_USER_PASSWORD: root
+      ports:
+        - "8080:8080"
+      networks:
+        - name: team7-network
+      state: started
