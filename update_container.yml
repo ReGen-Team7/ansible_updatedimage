@@ -13,7 +13,7 @@
     docker_container:
       name: todoappwithlogin
       state: stopped
-  - name: Download Web Application image
+  # - name: Download Web Application image
   #   docker_image:
   #     name: eugenefltk/todoappwithlogin
   #     pull: yes
